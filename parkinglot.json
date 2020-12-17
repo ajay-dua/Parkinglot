@@ -1,0 +1,32 @@
+[
+    {
+        "slotId": 1,
+        "isBooked": 0,
+        "parkedAt": 1608221691436,
+        "regNo": ""
+    },
+    {
+        "slotId": 2,
+        "isBooked": 0,
+        "parkedAt": 1608221691436,
+        "regNo": ""
+    },
+    {
+        "slotId": 3,
+        "isBooked": 0,
+        "parkedAt": 1608221691436,
+        "regNo": ""
+    },
+    {
+        "slotId": 4,
+        "isBooked": 0,
+        "parkedAt": 1608221691436,
+        "regNo": ""
+    },
+    {
+        "slotId": 5,
+        "isBooked": 0,
+        "parkedAt": 1608221691436,
+        "regNo": ""
+    }
+]

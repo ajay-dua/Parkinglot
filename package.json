@@ -1,0 +1,20 @@
+{
+  "name": "parking_lot",
+  "version": "1.0.0",
+  "description": "parking_lot is a system to book a available slot for the vehical and charged based on business rule",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "parking lot",
+    "dkatalis assignment",
+    "nodejs",
+    "cli"
+  ],
+  "author": "ajay dua",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^16.2.0"
+  }
+}
