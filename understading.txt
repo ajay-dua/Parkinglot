@@ -1,0 +1,70 @@
+expectation:
+
+    solution inside the parking_lot directory
+    OOPS, craft the most beautiful code
+    assumptionswhen building software
+    without using any external libraries
+    solution must build+run on Linux
+    local git versioning
+    comprehensive unit tests/specs 
+    output:standard zip or tarball
+    read:functional_spec/README.md
+    NOTE:Please do not make either your solution or this problem statement publicly available by, 
+    for example, using github or bitbucket or by posting this problem to a blog or forum
+
+solution:
+
+    technology: nodejs,cli.
+    version control: git
+    test case framework: mocha,chai
+
+assumptions:
+
+        per day multiple entries for a vehicle in parking-lot.
+        date included with time in parking receipt.
+        driver would park in the assigned slot.
+
+functionlity usecases:
+
+        system data source would be text file for I/O.
+        system would able create a parking lot with n slots.
+        system would able to park the vehicle to nearest available(empty) slot from the entry pt 
+        and able to give the parking receipt including time stamp and registration no.
+        system would able unpark-exit the vehicle, free up slot to make it available again for parking,
+        system should be able to charge the valihcle based on duration formula.
+        system would be smart enough to tell if no slot is available.
+        system would be able to tell with registration no if the vehicle is parked in the parking lot.
+        system should be able to read the file for the status.
+        parking charges formula:Charge applicable is $10 for first 2 hours and $10 for every additional hour.
+
+validations msges:
+
+        Registration number DL-12-AA-9999 not found
+        Sorry, parking lot is full
+
+system Actions:
+        Createparkinglotofsizen:create_parking_lot {capacity}
+        Parkacar:park{car_number}
+        Remove(Unpark)carfrom:leave{car_number}{hours}
+        Printstatusofparkingslot:status
+
+test cases:
+        create a parking lot with n slots
+        able to park a car 
+        able to unpark a car
+        print status
+        fill all slots 
+
+Events:
+        whileParking
+            evalSlots
+                -find nearest
+                -find availability
+
+
+        whileExit
+enum : parking_slot_status{empty,filled}
+
+
+
+
