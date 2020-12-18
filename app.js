@@ -1,54 +1,48 @@
 
-parking_lot = require('./test.js')
+const parking_lot = require('./parkinglot.js')
 const yargs = require('yargs')
-const fs = require('fs')
-const { string } = require('yargs')
+
 
 yargs.command({
     command: 'create_parking_lot',
     description: 'this will create a entire parking lot with n slots',
     builder: {
-        totalSlots: {
+        capacity: {
             describe: 'parking capacity as numaric value',
             demandOption: true,
             type: BigInt
         },
     },
     handler: function (argv) {
-        parking_lot.init(argv.totalSlots)
-        saveLogs(`create_parking_lot ${argv.totalSlots}`)
-        //saveLogs(`Created parking lot with ${argv.totalSlots} slots.`)
+        parking_lot.init(argv.capacity)
     }
 })
 
 yargs.command({
     command: 'park',
-    description: 'this will create a entire parking lot with n slots',
+    description: 'park would allow checking avaiability for the slot and allocat the nearest slot.',
     builder: {
         regno: {
             describe: 'park a car with registration number',
             demandOption: true,
-            type: string
+            type: String
         },
     },
     handler: function (argv) {
-        //parking_lot.totalSlots(argv.totalSlots)
         parking_lot.bookSlot(argv.regno)
-        console.log('park %s',argv.regno)
-        saveLogs(`park  ${argv.regno}`)
-        //console.log('adding a new note..with  body', argv.body)
+
     }
 })
 
 
 yargs.command({
     command: 'leave',
-    description: 'this will create a entire parking lot with n slots',
+    description: 'leave would help on exit process with apply charges & free up the slot in the end',
     builder: {
         regno: {
-            describe: 'park a car with registration number',
+            describe: 'registration number for the parked vehical',
             demandOption: true,
-            type: string
+            type: String
         },
         hrs: {
             describe: 'no. of hrs for which the the vehical was parked',
@@ -57,25 +51,20 @@ yargs.command({
         },
     },
     handler: function (argv) {
-        parking_lot.unBookSlot(argv.regno,argv.hrs)
-        //console.log('leave %s',argv.regno)
-        saveLogs(`leave  ${argv.regno}   ${argv.hrs}` )
+        parking_lot.unBookSlot(argv.regno, argv.hrs)
+
     }
 })
-
 
 yargs.command({
-    command: 'list',
-    description: 'this will list all slots',
+    command: 'status',
+    description: 'Status will list the status of all the parking slots',
     handler: function () {
-        parking_lot.listSlots()
+        parking_lot.status()
     }
+
 })
 
 
-const saveLogs = function (parking_log) {
- 
-    fs.appendFileSync('file_input.txt', '\n' + parking_log)
-}
 
 yargs.parse()
