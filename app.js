@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 const parking_lot = require('./parkinglot.js')
 const yargs = require('yargs')
@@ -10,49 +11,56 @@ yargs.command({
         capacity: {
             describe: 'parking capacity as numaric value',
             demandOption: true,
-            type: BigInt
+            type: 'number'
         },
     },
     handler: function (argv) {
-        parking_lot.init(argv.capacity)
+        if (typeof argv.capacity === 'number') {
+            parking_lot.init(argv.capacity)
+        }else{
+            throw new Error("parking capacity as numaric value only")
+        }
     }
-})
+})  
+
 
 yargs.command({
     command: 'park',
-    description: 'park would allow checking avaiability for the slot and allocat the nearest slot.',
+    description: 'park would allow checking avaiability for the slot and allocate the nearest slot.',
     builder: {
         regno: {
-            describe: 'park a car with registration number',
+            describe: 'required as parking a car only allowed with registration number',
             demandOption: true,
-            type: String
+            type: 'string'
         },
     },
     handler: function (argv) {
-        parking_lot.bookSlot(argv.regno)
+        if (typeof argv.regno === 'string' && argv.regno !== '') {
+            parking_lot.bookSlot(argv.regno)
+        }
 
     }
 })
-
 
 yargs.command({
     command: 'leave',
     description: 'leave would help on exit process with apply charges & free up the slot in the end',
     builder: {
         regno: {
-            describe: 'registration number for the parked vehical',
+            describe: 'required registration number for the parked vehical',
             demandOption: true,
-            type: String
+            type: 'string'
         },
         hrs: {
-            describe: 'no. of hrs for which the the vehical was parked',
+            describe: 'required no. of hrs for which the the vehical was parked',
             demandOption: true,
-            type: BigInt
+            type: 'number'
         },
     },
     handler: function (argv) {
-        parking_lot.unBookSlot(argv.regno, argv.hrs)
-
+        if (typeof argv.regno === 'string' && argv.regno !== '') {
+            parking_lot.unBookSlot(argv.regno, argv.hrs)
+        }
     }
 })
 
@@ -66,5 +74,5 @@ yargs.command({
 })
 
 
-
+//sudo npm link
 yargs.parse()
