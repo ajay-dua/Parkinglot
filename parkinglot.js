@@ -14,7 +14,9 @@ const Slot = function (id) {
 
 //total_slots should be read only property set once by the user i the begining of the prog.
 const init = function (totalSlots) {
-    console.log('Created parking lot with %i slots', totalSlots)
+
+
+    //it's a number
     //initialising for the slots in the parking lot! 
     for (var slotid = 1; slotid <= totalSlots; slotid++) {
         parking_lot.push(new Slot(slotid));
@@ -22,10 +24,12 @@ const init = function (totalSlots) {
         console.log('Allocated slot number:', slotid)
 
     }
+    console.log('Created parking lot with %i slots', totalSlots)
     //will delete file_input if exists and start fresh with new parking slots. 
     fs.writeFileSync('file_input.txt', `create_parking_lot ${totalSlots}`)
 
 }
+
 
 const saveParkingLot = function (parking_lot) {
 
@@ -49,7 +53,6 @@ const loadAllSlots = function () {
     }
 
 }
-
 
 //this will find nearest slot
 // book and save state 
@@ -97,7 +100,7 @@ const unBookSlot = function (regno, hrs) {
         var regNo = foundSlot.regNo;
         foundSlot.regNo = ''
         //for future release
-        //var hrs = Math.abs(Date.now() - foundSlot.parkedAt) / 36e5;
+        //var calcHrs = Math.abs(Date.now() - foundSlot.parkedAt) / 36e5;
         if (hrs > 2) {
             charges = hrs * 10 - 10
         }
@@ -113,17 +116,17 @@ const unBookSlot = function (regno, hrs) {
     }
 }
 
-const listSlots = function () {
-    const slotes = loadAllSlots()
-    return slotes
-}
+// const listSlots = function () {
+//     const slotes = loadAllSlots()
+//     return slotes
+// }
 
 
 const status = function () {
-    var Slots = listSlots()
+    var Slots = loadAllSlots()
     console.log('Slot No.  Registration No.')
-    Slots.forEach(element => {
-        console.log(element.slotId + '         ' + element.regNo)
+    Slots.forEach(slot => {
+        console.log(slot.slotId + '         ' + slot.regNo)
     });
     saveLogs('Status')
 }
