@@ -2,7 +2,7 @@ expectation:
 
     solution inside the parking_lot directory
     OOPS, craft the most beautiful code
-    assumptionswhen building software
+    assumptions when building software
     without using any external libraries
     solution must build+run on Linux
     local git versioning
@@ -20,7 +20,8 @@ solution:
 
 assumptions:
 
-        per day multiple entries for a vehicle in parking-lot.
+        per day multiple entries allowed for a vehicle in parking-lot.
+        system would only allow single entry for the vehical at a time validate with registration no.
         date included with time in parking receipt.
         driver would park in the assigned slot.
 
