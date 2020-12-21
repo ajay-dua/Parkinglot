@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const parking_lot = require('./parkinglot.js')
 const yargs = require('yargs')
 
@@ -7,6 +6,7 @@ const yargs = require('yargs')
 yargs.command({
     command: 'create_parking_lot',
     description: 'this will create a entire parking lot with n slots',
+    showInHelp: true,
     builder: {
         capacity: {
             describe: 'parking capacity as numaric value',
@@ -16,13 +16,13 @@ yargs.command({
     },
     handler: function (argv) {
         if (typeof argv.capacity === 'number') {
-            parking_lot.init(argv.capacity)
-        }else{
-            throw new Error("parking capacity as numaric value only")
+            totalSlots = parseInt(argv.capacity);
+            console.log(parking_lot.init(argv.capacity))
+        } else {
+            return "parking capacity as numaric value only!";
         }
     }
-})  
-
+})
 
 yargs.command({
     command: 'park',
@@ -36,7 +36,7 @@ yargs.command({
     },
     handler: function (argv) {
         if (typeof argv.regno === 'string' && argv.regno !== '') {
-            parking_lot.bookSlot(argv.regno)
+            console.log(parking_lot.bookSlot(argv.regno))
         }
 
     }
@@ -59,7 +59,7 @@ yargs.command({
     },
     handler: function (argv) {
         if (typeof argv.regno === 'string' && argv.regno !== '') {
-            parking_lot.unBookSlot(argv.regno, argv.hrs)
+            console.log(parking_lot.unBookSlot(argv.regno, argv.hrs))
         }
     }
 })
@@ -68,11 +68,9 @@ yargs.command({
     command: 'status',
     description: 'Status will list the status of all the parking slots',
     handler: function () {
-        parking_lot.status()
+        console.log(parking_lot.status())
     }
 
 })
-
-
 //sudo npm link
 yargs.parse()
