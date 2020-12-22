@@ -27,7 +27,7 @@ test('parkinglot should be full', () => {
 });
 
 
-
+//TODO:this is being failed for some reasone i need to look into
 test('should be able to unpark, charged with 50 dollars', () => {
     var regno = "KA-01-BB-0001";
     var expCharges = 50 

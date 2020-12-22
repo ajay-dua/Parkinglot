@@ -72,5 +72,4 @@ yargs.command({
     }
 
 })
-//sudo npm link
 yargs.parse()
