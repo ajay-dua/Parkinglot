@@ -7,6 +7,7 @@ Installation and run automation:
   1. unzip: tar -xvzf parking_lot-1.0.0.tgz -C parkinglot/
   get inside the "parkinglot/package/" DIR
   2. chmod +x setup.sh
+  3. ./setup.sh
 
 Manual usage
 Commands:
