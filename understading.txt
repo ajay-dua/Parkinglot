@@ -21,7 +21,7 @@ solution:
 assumptions:
 
         per day multiple entries allowed for a vehicle in parking-lot.
-        system would only allow single entry for the vehical at a time validate with registration no.
+        system would only allow single entry for the vehicle at a time validate with registration no.
         date included with time in parking receipt.
         driver would park in the assigned slot.
 

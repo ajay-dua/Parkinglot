@@ -1,7 +1,7 @@
 {
   "name": "parking_lot",
   "version": "1.0.0",
-  "description": "parking_lot is a system to book a available slot for the vehical and charged based on business rule",
+  "description": "parking_lot is a system to book a available slot for the vehicle and charged based on business rule",
   "bin": {
     "parkinglot": "./app.js"
   },

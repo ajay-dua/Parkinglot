@@ -47,12 +47,12 @@ yargs.command({
     description: 'leave would help on exit process with apply charges & free up the slot in the end',
     builder: {
         regno: {
-            describe: 'required registration number for the parked vehical',
+            describe: 'required registration number for the parked vehicle',
             demandOption: true,
             type: 'string'
         },
         hrs: {
-            describe: 'required no. of hrs for which the the vehical was parked',
+            describe: 'required no. of hrs for which the the vehicle was parked',
             demandOption: true,
             type: 'number'
         },

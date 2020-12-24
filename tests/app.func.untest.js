@@ -1,7 +1,7 @@
 
 //check if parkinglot exists or not
-//check for vehical already parked
-//check if vehical charged method is aligned to business rule.
+//check for vehicle already parked
+//check if vehicle charged method is aligned to business rule.
 //check if parkinglot full
 const app = require("../parkinglot.js");
 
@@ -38,7 +38,7 @@ test('should be able to unpark, charged with 50 dollars', () => {
 });
 
 
-test('check for vehical already parked', () => {
+test('check for vehicle already parked', () => {
     var regno = "KA-01-HH-1234";
     console.log(app.bookSlot(regno));
 });

@@ -1,7 +1,8 @@
 Project Name: parking_lot
 Prerequisites :
-    internet on the deploy* machine to download the package depn* 
-    you should have a non-root user account with sudo privileges set up on your system
+    1. internet on the deploy* machine to download the package depn* 
+    2. you should have a non-root user account with sudo privileges set up on your system
+    3. curl 
 Installation and run automation:
  
   1. unzip: tar -xvzf parking_lot-1.0.0.tgz -C parkinglot/
